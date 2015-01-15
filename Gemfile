@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
 # Haml
 gem 'haml-rails'
+gem 'bower-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
