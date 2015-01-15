@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -17,7 +18,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'compass-rails', github: 'Compass/compass-rails', branch: 'master'
 # Haml
 gem 'haml-rails'
-gem 'bower-rails'
+# Assets
+gem 'rails-assets-bootstrap-sass-official'
+gem 'rails-assets-angular'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
