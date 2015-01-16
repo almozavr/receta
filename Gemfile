@@ -23,6 +23,8 @@ gem 'haml-rails'
 gem 'rails-assets-bootstrap-sass-official'
 gem 'rails-assets-angular'
 gem 'rails-assets-angular-route'
+gem 'rails-assets-angular-resource'
+gem 'rails-assets-angular-mocks'
 gem 'angular-rails-templates'
 
 # Use jquery as the JavaScript library
@@ -58,6 +60,8 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem 'teaspoon'
+  gem 'phantomjs'
 end
 
 gem 'foreman'
