@@ -1,0 +1,20 @@
+%header.row
+  %h1.text-center.col-md-6.col-md-offset-3 Find Recipes
+%section.row
+  %form
+    %div.form-group.col-md-6.col-md-offset-3
+      %label.sr-only(for="keywords") Keywords
+      %input.form-control(ng-model='keywords' name='keywords' type="text" autofocus placeholder="Recipe name, e.g. Baked Potato")
+    %div.form-group.col-md-6.col-md-offset-3.text-center
+      %button.btn.btn-primary.btn-lg(ng-click="search(keywords)") Search
+%hr
+%section.row(ng-if="recipes")
+  %h1.text-center.h2 Results
+  %ul.list-unstyled
+    %li(ng-repeat="recipe in recipes")
+      %section.well.col-md-6.col-md-offset-3
+        %h1.h3.col-md-6.text-right(style="margin-top: 0")
+          %a(href="#") {{recipe.name}}
+        %div.col-md-6
+          %button.btn.btn-info Edit
+          %button.btn.btn-danger Delete
