@@ -22,6 +22,8 @@ gem 'haml-rails'
 # Assets
 gem 'rails-assets-bootstrap-sass-official'
 gem 'rails-assets-angular'
+gem 'rails-assets-angular-route'
+gem 'angular-rails-templates'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
