@@ -47,6 +47,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    angular-rails-templates (0.1.3)
+      railties (>= 3.1)
+      sprockets
+      tilt
     arel (6.0.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -138,6 +142,7 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     pg (0.18.1)
+    phantomjs (1.9.7.1)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -153,6 +158,14 @@ GEM
       railties (= 4.2.0)
       sprockets-rails
     rails-assets-angular (1.3.8)
+    rails-assets-angular-flash (0.1.14)
+      rails-assets-angular (>= 1.0, < 1.4)
+    rails-assets-angular-mocks (1.3.8)
+      rails-assets-angular (= 1.3.8)
+    rails-assets-angular-resource (1.3.8)
+      rails-assets-angular (= 1.3.8)
+    rails-assets-angular-route (1.3.8)
+      rails-assets-angular (= 1.3.8)
     rails-assets-bootstrap-sass-official (3.3.1)
       rails-assets-jquery (>= 1.9.0)
     rails-assets-jquery (2.1.3)
@@ -226,6 +239,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    teaspoon (0.8.0)
+      railties (>= 3.2.5, < 5)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -251,6 +266,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -262,8 +278,13 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
+  phantomjs
   rails (= 4.2.0)
   rails-assets-angular
+  rails-assets-angular-flash
+  rails-assets-angular-mocks
+  rails-assets-angular-resource
+  rails-assets-angular-route
   rails-assets-bootstrap-sass-official
   rails_12factor
   rails_serve_static_assets
@@ -273,6 +294,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   spring
+  teaspoon
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
