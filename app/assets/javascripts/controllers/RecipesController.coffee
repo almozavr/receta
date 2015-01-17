@@ -8,4 +8,6 @@ controllers.controller("RecipesController", ['$scope', '$routeParams', '$locatio
       Recipe.query(keywords: $routeParams.keywords, (results)-> $scope.recipes = results)
     else
       $scope.recipes = null
+
+    $scope.view = (recipeId)-> $location.path("/recipes/#{recipeId}")
 ])

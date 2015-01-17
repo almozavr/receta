@@ -3,6 +3,7 @@ describe "RecipeController", ->
   ctrl = null
   routeParams = null
   httpBackend = null
+  flash = null
   recipeId = 42
 
   fakeRecipe =
@@ -11,11 +12,12 @@ describe "RecipeController", ->
     instruction: "Pierce potato with fork, nuke for 20 minutes"
 
   setupController = (recipeExists = true)->
-    inject(($routeParams, $rootScope, $httpBackend, $controller)->
+    inject(($routeParams, $rootScope, $httpBackend, $controller, _flash_)->
       scope = $rootScope.$new()
       httpBackend = $httpBackend
       routeParams = $routeParams
       routeParams.recipeId = recipeId
+      flash = _flash_
 
       request = new RegExp("\/recipes/#{recipeId}")
       results = if recipeExists
@@ -46,3 +48,4 @@ describe "RecipeController", ->
         httpBackend.flush()
       it 'loads the given recipe', ->
         expect(scope.recipe).toBe(null)
+        expect(flash.error).toBe("There is no recipe with ID #{recipeId}")

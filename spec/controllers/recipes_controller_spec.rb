@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe RecipesController do
   render_views
-  describe "index" do
+
+  describe 'index' do
     before do
       Recipe.create!(name: 'Baked Potato w/ Cheese')
       Recipe.create!(name: 'Garlic Mashed Potatoes')
@@ -15,10 +16,10 @@ describe RecipesController do
     subject(:results) { JSON.parse(response.body) }
 
     def extract_name
-      ->(object) { object["name"] }
+      ->(object) { object['name'] }
     end
 
-    context "when the search finds results" do
+    context 'when the search finds results' do
       let(:keywords) { 'baked' }
       it 'should 200' do
         expect(response.status).to eq(200)
@@ -39,6 +40,30 @@ describe RecipesController do
       it 'should return no results' do
         expect(results.size).to eq(0)
       end
+    end
+  end
+
+  describe 'show' do
+    before do
+      xhr :get, :show, format: :json, id: recipe_id
+    end
+
+    subject(:results) { JSON.parse(response.body) }
+
+    context "when recipe exists" do
+      let(:recipe) {
+        Recipe.create!(name: 'Baked Potato w/ Cheese', instruction: "Nuke for 20 minutes; top with cheese")
+      }
+      let(:recipe_id) { recipe.id }
+      it { expect(response.status).to eq(200) }
+      it { expect(results['id']).to eq(recipe.id) }
+      it { expect(results['name']).to eq(recipe.name) }
+      it { expect(results['instruction']).to eq(recipe.instruction) }
+    end
+
+    context "when the recipe doesn't exit" do
+      let(:recipe_id) { -9999 }
+      it { expect(response.status).to eq(404) }
     end
   end
 

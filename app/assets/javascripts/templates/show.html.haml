@@ -1,0 +1,11 @@
+%aside.flash.row
+  %article.col-md-6.col-md-offset-3.col-sm-12(flash-alert duration="0" active-class="alert")
+    {{flash.message}}
+%section.col-md-6.col-md-offset-3
+  %article.panel.panel-info(ng-if="recipe")
+    %header.panel-heading
+      %h1
+        {{recipe.name}}
+    %p.panel-body
+      {{recipe.instruction}}
+  %button.btn.btn-default(ng-click="back()") &larr; Back

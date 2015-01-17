@@ -25,6 +25,7 @@ gem 'rails-assets-angular'
 gem 'rails-assets-angular-route'
 gem 'rails-assets-angular-resource'
 gem 'rails-assets-angular-mocks'
+gem 'rails-assets-angular-flash'
 gem 'angular-rails-templates'
 
 # Use jquery as the JavaScript library
