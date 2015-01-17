@@ -6,6 +6,10 @@ app.config(
       templateUrl: 'index.html',
       controller: 'RecipesController'
     )
+    .when('/recipes/:id',
+      templateUrl: 'show.html',
+      controller: 'RecipeController'
+    )
   ]
 )
 controllers = angular.module('controllers', [])
