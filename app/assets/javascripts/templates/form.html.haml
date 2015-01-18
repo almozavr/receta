@@ -1,0 +1,17 @@
+%aside.flash.row
+  %article.col-md-6.col-md-offset-3(duration="0" active-class="alert" flash-alert)
+    {{flash.message}}
+%form.form-horizontal.edit-user(role="form")
+  .form-group(ng-class="{'has-warning has-feedback':errors.name}")
+    %label.col-md-2.control-label.col-md-offset-2(for="name") Name
+    .col-md-5
+      %input.form-control(type="text" name="name" placeholder="e.g. Baked Alaska" ng-model="recipe.name")
+  .form-group(ng-class="{'has-warning has-feedback':errors.name}")
+    %label.col-md-2.control-label.col-md-offset-2(for="instruction") Instruction
+    .col-md-5
+      %textarea.form-control(type="text" name="instruction" placeholder="e.g. Flambé for 20 seconds" ng-model="recipe.instruction")
+  .form-group
+    .col-md-offset-2.col-md-3
+      %button.btn.btn-default(ng-click="cancel()") Cancel
+    .col-md-4.text-right
+      %button.btn.btn-primary(ng-click="save()") Save
