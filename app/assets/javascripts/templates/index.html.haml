@@ -7,6 +7,7 @@
       %input.form-control(ng-model='keywords' name='keywords' type="text" autofocus placeholder="Recipe name, e.g. Baked Potato")
     %div.form-group.col-md-6.col-md-offset-3.text-center
       %button.btn.btn-primary.btn-lg(ng-click="search(keywords)") Search
+      %button.btn.btn-info.btn-lg(ng-click="newRecipe()") New Recipe…
 %hr
 %section.row(ng-if="recipes")
   %h1.text-center.h2 Results
@@ -17,5 +18,4 @@
           %a(href ng-click="view(recipe.id)")
             {{recipe.name}}
         %div.col-md-6
-          %button.btn.btn-info Edit
-          %button.btn.btn-danger Delete
+          %button.btn.btn-info(ng-click="edit(recipe.id)") Edit

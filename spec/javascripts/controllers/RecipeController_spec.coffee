@@ -17,7 +17,7 @@ describe "RecipeController", ->
       scope = $rootScope.$new()
       httpBackend = $httpBackend
       routeParams = $routeParams
-      routeParams.id = recipeId if recipeId
+      routeParams.recipeId = recipeId if recipeId
       location = $location
       flash = _flash_
 
@@ -78,7 +78,7 @@ describe "RecipeController", ->
     beforeEach ->
       setupController()
       httpBackend.flush()
-      request = new RegExp("\/recipes")
+      request = new RegExp("\/recipes/#{scope.recipe.id}")
       httpBackend.expectPUT(request).respond(204)
 
     it 'posts to the backend', ->
@@ -92,7 +92,7 @@ describe "RecipeController", ->
     beforeEach ->
       setupController()
       httpBackend.flush()
-      request = new RegExp("\/recipes")
+      request = new RegExp("\/recipes/#{scope.recipe.id}")
       httpBackend.expectDELETE(request).respond(204)
 
     it 'posts to the backend', ->

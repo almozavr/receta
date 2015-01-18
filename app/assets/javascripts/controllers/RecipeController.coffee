@@ -1,19 +1,19 @@
 controllers = angular.module("controllers")
 controllers.controller("RecipeController", ['$scope', '$routeParams', '$location', '$resource', 'flash'
   ($scope, $routeParams, $location, $resource, flash) ->
-    Recipe = $resource('/recipes/:recipeId', {recipeId: @id, format: 'json'},
+    Recipe = $resource('/recipes/:recipeId', {recipeId: '@id', format: 'json'},
       {
         'save': {method: 'PUT'},
         'create': {method: 'POST'}
       }
     )
 
-    if ($routeParams.id)
-      Recipe.get({recipeId: $routeParams.id},
+    if ($routeParams.recipeId)
+      Recipe.get({recipeId: $routeParams.recipeId},
         ((recipe) -> $scope.recipe = recipe),
         ((httpResponse) ->
           $scope.recipe = null
-          flash.error = "There is no recipe with ID #{$routeParams.id}"
+          flash.error = "There is no recipe with ID #{$routeParams.recipeId}"
         )
       )
     else
@@ -31,7 +31,7 @@ controllers.controller("RecipeController", ['$scope', '$routeParams', '$location
     $scope.save = ->
       onError = (httpResponse)-> flash.error = "Something went wrong"
       if $scope.recipe.id
-        $scope.recipe.$save(
+        Recipe.save({recipeId:$scope.recipe.id}, $scope.recipe,
           (()-> $location.path("/recipes/#{$scope.recipe.id}")),
           onError
         )
