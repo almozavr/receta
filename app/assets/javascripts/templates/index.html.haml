@@ -14,7 +14,8 @@
     %li(ng-repeat="recipe in recipes")
       %section.well.col-md-6.col-md-offset-3
         %h1.h3.col-md-6.text-right(style="margin-top: 0")
-          %a(href ng-click="view(recipe.id)") {{recipe.name}}
+          %a(href ng-click="view(recipe.id)")
+            {{recipe.name}}
         %div.col-md-6
           %button.btn.btn-info Edit
           %button.btn.btn-danger Delete
